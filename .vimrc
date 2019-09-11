@@ -1,6 +1,11 @@
 set nocompatible
-filetype off
-
+:inoremap ( ()<Esc>i
+:inoremap ' ''<Esc>i
+:inoremap" ""<Esc>i
+:inoremap[ []<Esc>i
+:inoremap{{ {}<Esc>i
+:inoremap{<CR> {<CR>}<Esc>ko
+filetype off 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -8,6 +13,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'geoffharcourt/vim-matchit'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'AutoComplPop'
+Plugin 'ervandew/supertab'
 call vundle#end()
 filetype plugin indent on
 
@@ -21,6 +27,8 @@ set shiftwidth=4
 set incsearch
 set hlsearch
 set autowrite
+set foldmethod=marker
+nnoremap <space> za
 autocmd Filetype html setlocal ts=2 sw=2
 
 colorscheme pixelmuerto
@@ -35,4 +43,4 @@ nmap fj <C-y>
 
 map <C-n> :NERDTreeToggle<CR>
 map <F2> a<C-R>=strftime("%c")<CR><Esc>
-map <F12> <Esc>:w<Return>   
+map <F12> <Esc>:w<Return>  
